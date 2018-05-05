@@ -24,9 +24,10 @@
     * Quantidade e definição dos recursos necessários
 
 * Administração eficaz do tempo:
-    * Seguir o cronograma definido
-    * Delegar
-    * Iniciar agora
-    * Definir pautas para a reunião
+
+  * Seguir o cronograma definido
+  * Delegar
+  * Iniciar agora
+  * Definir pautas para a reunião
 
 * **Estresse** e **esgotamento físico** são elementos presentes e complicadores no ambiente de projetos
