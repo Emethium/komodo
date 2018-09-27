@@ -51,4 +51,67 @@ console.log(Something.instances); // 2
 
 ---
 
-##
+## Access Modifiers
+
+- TypeScript supports the following access modifiers:
+  - `public`
+  - `private`
+  - `protected`
+- If a access modifier is not set, a `public` one will be implicitally set.
+- In the compiled JS, access modifiers pose no significance, but will give compile errors when used incorrecly :grimacing:
+- The class accessibility reference is shown below:
+
+| Accessible on   | `public` | `protected` | `private` |
+| --------------- | -------- | ----------- | --------- |
+| class           | yes      | yes         | yes       |
+| class children  | yes      | yes         | no        |
+| class instances | yes      | no          | no        |
+
+---
+
+## Abstract
+
+- Abstract classes or members works as access modifiers, but within a different context.
+- The `abstract` modifier implies that a dafined class or member cannot be directly invoked or instantiated.
+  - Abstract **classes** cannot be directly instantiated, so you must make use of a child class that inherits the former in order to use it.
+  - Abstract **members** cannot be directly invoked, so a child class must provide the method functionality. 
+
+---
+
+## Constructor
+
+- Completely optional, you don't need to specify one for a class. Therefore, the following is perfctly valid: :smirk: 
+  ```ts
+  class Thing {}
+  let thing = new Thing();
+  ```
+- Initialing member classes in constructors (with the specific access modifiers) can be simplified. So the following code:
+  ```ts
+  class Thing {
+    x: number;
+    constructor(x: number) {
+      this.x = x;
+    }
+  }
+  ```
+  - Can be rewritten as:
+  ```ts
+  class Thing {
+    constructor(public x:number) {
+    }
+  }
+  ```
+  - I personally have some issues regarding legibility of the second option, but that's up to you.
+
+---
+
+## Property initializer
+- Class members can actually be initialized outside the constructor, so the following would be valid:
+  ```ts
+  class Thing {
+    stuff = [];  // Here you go
+    add(x) {
+      this.stuff.push(x);
+    }
+  }
+  ```
