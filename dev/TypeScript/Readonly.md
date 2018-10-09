@@ -2,7 +2,7 @@
 
 - TypeScript's type system allows you to mark individual properties as `readonly`.
 - I think that we do not need to state what this does :expressionless:
-- It actually allows us to work in a funtional way, since we wouldn't be able to mutate properties.
+- It actually allows us to work in a functional way, since we wouldn't be able to mutate properties.
 
 ```ts
 function foo(config: { readonly bar: number; readonly bas: number }) {
