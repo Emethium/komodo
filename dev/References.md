@@ -18,3 +18,4 @@
 ## CSS
 
 - [Introducing the CSS Cascade](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)
+- [30 seconds of CSS](https://30-seconds.github.io/30-seconds-of-css)
