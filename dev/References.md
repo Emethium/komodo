@@ -5,6 +5,7 @@
 ## JavaScript:
 
 - [TypeScript Deep Dive](https://basarat.gitbooks.io/typescript/)
+- [Functional Programming Principles in JavaScript](https://dev.to/leandrotk_/functional-programming-principles-in-javascript-26g7)
 
 ---
 
