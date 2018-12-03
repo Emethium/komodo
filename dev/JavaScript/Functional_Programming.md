@@ -183,3 +183,50 @@ doubleOperator(sub, 3, 1); // 4
 - It can be a little confusing at first, but it's really simple. We're using **a third function as a function-builder** to apply the common pattern between our former two functions (the `* 2` operation) by passing along the `sum` or `sub` functions.
 
 - Remember that the objective here was to **treat functions as values** and **pass them along as arguments**!
+
+## Higher-order functions
+
+- When we are talking about such functions we refer to a function that either:
+
+  - Takes one or more functions as arguments
+  - Returns a function as a result
+
+- As a matter of fact we just did one of the kind! THe `doubleOperator` function is a higher-order one because it takes one function as an argument an uses it to produce an output.
+
+- We will cover now the famous `filter` and `map` as examples. Let's take a look.
+
+- **Filter**
+
+  - Given a collection, we want to filter it by an attribute. The filter function expects a `true` or `false` value do determine if the element **should or not** be included in the result collection.
+  - In other words, if the callback expression is `true`, the `filter` function will include the element on the collection. Otherwise, it will not.
+  - A declarative JavaScript example would be:
+
+  ```js
+  let numbers = [10, 9, 8, 7, 6, 5, 1, 3, 0];
+
+  function smaller(number) {
+    return number < this;
+  }
+
+  function filterArray(x, list) {
+    return list.filter(smaller, x);
+  }
+
+  filterArray(3, numbers); // [1, 0]
+  ```
+
+  - Some explanation is needed to clarify things. `this` will be the second parameter in the `filter` function, being the `x` in our `.filter` call.
+
+- **Map**
+
+  - The `map` method transforms a collection by applying a function to all of its elements and building a new collection from the returned values.
+
+  ```js
+  let values = [1, 2, 3, -4, 5];
+
+  function updateListByMap(values) {
+    return values.map(Math.abs);
+  }
+
+  updateListByMap(values); // [1, 2, 3, 4, 5];
+  ```
