@@ -85,3 +85,40 @@
   - Given the same parameters, pure functions always return the same value
   - We don't need to think of situations when the same parameters have different results **as they will never happen**
   - Easier to test code
+
+## Immutability
+
+- We refer here to our inability to change an object after it's created. **Instead, we create a new object with a new value**.
+- The following `for` loop has some mutable variables:
+
+```js
+let values = [1, 2, 3, 4, 5];
+let sumOfValues = 0;
+
+for (int i = 0; i < values.length; i++) {
+  sumOfValues += value[i];
+}
+
+console.log(sumOfValues); // 15
+```
+
+- In each `for` iteration we are changing the `i` and `sumOfValues` states. And how we deal with immutability in a iteration? **Recursion!**
+
+```js
+let list = [1, 2, 3, 4, 5];
+let accumulator = 0;
+
+function sum(list, acc) {
+  if (list.length == = 0) {
+    return acc;
+  } else {
+    return sum(list.slice(1), acc + list[0]);
+  }
+}
+
+sum(list, accumulator); // 15
+console.log(list);  // [1, 2, 3, 4, 5]
+console.log(accumulator); // 0
+```
+
+- Fun, isn't it? Here we **never reassigned any of the former variables** but obtained the final answer **by manipulating values in memory inside our recursive function**! The global variables values stayed as they were.
