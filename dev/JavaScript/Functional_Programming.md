@@ -122,3 +122,64 @@ console.log(accumulator); // 0
 ```
 
 - Fun, isn't it? Here we **never reassigned any of the former variables** but obtained the final answer **by manipulating values in memory inside our recursive function**! The global variables values stayed as they were.
+
+## Referential transparency
+
+- Consider the following `square` function:
+
+```js
+function square(n) {
+  return n * n;
+}
+```
+
+- It's a **pure function** that will always return the same output, given the same input. Passing `2` as a parameter will always return `4`, as we could replace `square(2)` with `4`. Our function is **referentially transparent**.
+
+- **pure functions + immutable data = referential transparency**
+
+## Functions as first-class entities
+
+- The concept of functions as first-class entities is that **functions are also treated as values and used as data**
+
+- Functions as first-class entities can:
+
+  - Refer to it from constants and variables
+  - Pass it as parameters to other functions
+  - Return it as result from other functions
+
+- We should **treat functions as values** and **pass functions like data**.
+
+- Imagine we have a function that sums two values and then doubles it, and another that subtracts those same values and returns the double:
+
+```js
+function doubleSum(a, b) {
+  return (a + b) * 2;
+}
+
+function doubleSub(a, b) {
+  return (a - b) * 2;
+}
+```
+
+- Both functions follow a similar logic, being the only difference the operators used. If we treat **functions as values** and **pass along as arguments**, we can **build a function** that receives the operator function and use it inside itself:
+
+```js
+function sum(a, b) {
+  return a + b;
+}
+
+function sub(a, b) {
+  return a - b;
+}
+
+function doubleOperator(f, a, b) {
+  return f(a, b) * 2;
+}
+
+doubleOperator(sum, 3, 1); // 8
+doubleOperator(sub, 3, 1); // 4
+```
+
+- It can be a little confusing at first, but it's really simple. We're using **a third function as a function-builder** to apply the common pattern between our former two functions (the `* 2` operation) by passing along the `sum` or `sub` functions.
+
+- Remember that the objective here was to **treat functions as values** and **pass them along as arguments**!
