@@ -65,3 +65,16 @@
 - Meaning, theoretically, there are an infinite number of tuples.
 - Tuples are written bu the use of parenthesis with any elements inside: `(Integer, String)`
 - The **empty tuple** `()` is also a type which can have a single (and empty) value;
+
+## Type variables
+
+- Let's check the type definition of the `head` function:
+  ```haskell
+  ghci> head
+  head :: [a] -> a
+  ```
+- What is this `a`? Is it a type?
+  - Not really. Since it's not written in capital case, it can't exactly be a type.
+  - It's actually a **type variable** than can be of **any type**
+  - This is much like generics in other languages, only in Haskell it's much more powerful because it allows us to easily write very general functions
+  - So, the type definition of `head` states that it takes  **a list of any type** and returns one element of that list.
